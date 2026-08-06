@@ -12,8 +12,9 @@ approximation indefinite and send the solver uphill.
 - `bfgs_fixed.js` — same structure as `bfgs.js`, but the curvature check is
   `if (ys < 1e-18) break;` and the log line says `[FIXED]` instead of `[BUGGY]`.
 
-The only functional difference between the two files is the single-character
-condition change: `Math.abs(ys)` becomes `ys`.
+The only functional difference between the two files is the curvature condition:
+`Math.abs(ys) < 1e-18` becomes `ys < 1e-18`.  Everything else that differs is a
+comment or a log line.
 
 - `probe.js` — runs both on a convex and a non-convex objective and prints divergence.
 - `run.sh` — one command to run the demo.
